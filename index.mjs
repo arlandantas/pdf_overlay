@@ -3,8 +3,8 @@ import fs from 'fs'
 import pdflib from 'pdf-lib'
 const { PDFDocument } = pdflib
 
-let cabecalho = 'C:\\Users\\lanfs\\Desktop\\Impressoes HU\\header.pdf'
-let conteudo = 'C:\\Users\\lanfs\\Desktop\\Impressoes HU\\Demonstrativos'
+let cabecalho = 'C:\\Users\\lanfs\\Desktop\\Impressoes HU\\header_landscape.pdf'
+let conteudo = 'C:\\Users\\lanfs\\Desktop\\Impressoes HU\\Centro x Convenio'
 
 overlayFolder(conteudo, cabecalho)
 
