@@ -42,16 +42,9 @@ async function printPDF() {
     current_url = page.url()
   }
   console.log("Chegamos na página certa!!!")
-
-  // await page.evaluate(_ => {
-  //   // this will be executed within the page, that was loaded before
-  //   $('select[ng-model="id_centro"]').val('72')
-  //   // $('select[ng-model="id_centro"]').val('38')
-  //   $('select[ng-model="id_centro"]').trigger('change')
-  // });
   
   // Change the centro select value
-  await page.select('select[ng-model="id_centro"]', 72)
+  await page.select('select[ng-model="id_centro"]', '72')
   // Wait a little
   await new Promise(resolve => setTimeout(resolve, 2000));
 
