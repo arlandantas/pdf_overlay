@@ -1,0 +1,34 @@
+@media print {
+    @page {
+        margin: 4.5cm 2cm 2.5cm;
+    }
+}
+div {
+    page-break-inside: avoid;
+}
+img {
+    max-width: 190mm;
+}
+/* body, html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    place-content: flex-start;
+}
+body > div {
+    display: block;
+    page-break-inside: avoid;
+}
+body > div > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+img {
+    display: block;
+    page-break-inside: avoid;
+} */
