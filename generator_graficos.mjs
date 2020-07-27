@@ -81,7 +81,7 @@ async function printPDF() {
         // Gerado todos os meses do ano
         console.log(`Entered on Chart ${j}`)
         let meses = await page.$$eval(`#slct_mes1${j} option`, options => options
-          .filter(o => o.value != '' && !`${o.value}`.startsWith('$'))
+          .filter(o => o.value != '' && !`${o.value}`.startsWith('$') && !`${o.value}`.startsWith('?'))
           .map(o => ({ id: o.value, ano: o.innerText.split('-')[1], mes: o.innerText.split('-')[0], int_mes: parseInt(o.innerText.split('-')[0]) }))
           .sort((a, b) => a.ano < b.ano ? -1 : 1 )
         )
@@ -123,7 +123,7 @@ async function printPDF() {
         // Gerado todos os meses do ano
         console.log(`Entered on Chart ${j}`)
         let meses = await page.$$eval(`#slct_mes1${j} option`, options => options
-          .filter(o => o.value != '' && !`${o.value}`.startsWith('$'))
+          .filter(o => o.value != '' && !`${o.value}`.startsWith('$') && !`${o.value}`.startsWith('?'))
           .map(o => ({ id: o.value, ano: o.innerText.split('-')[1], mes: o.innerText.split('-')[0], int_mes: parseInt(o.innerText.split('-')[0]) }))
           .sort((a, b) => (parseInt(a.ano) * 12 + a.int_mes) < (parseInt(b.ano) * 12 + b.int_mes) ? -1 : 1 )
         )
@@ -156,7 +156,7 @@ async function printPDF() {
         // Gerado a cada 4 meses
         console.log(`Entered on Chart ${j}`)
         let meses = await page.$$eval(`#slct_mes1${j} option`, options => options
-          .filter(o => o.value != '' && !`${o.value}`.startsWith('$'))
+          .filter(o => o.value != '' && !`${o.value}`.startsWith('$') && !`${o.value}`.startsWith('?'))
           .map(o => ({ id: o.value, ano: o.innerText.split('-')[1], mes: o.innerText.split('-')[0], int_mes: parseInt(o.innerText.split('-')[0]) }))
           .sort((a, b) => a.ano < b.ano ? -1 : 1 )
         )
@@ -206,7 +206,7 @@ async function printPDF() {
         // Gerado de 2 em 2 anos
         console.log(`Entered on Chart ${j}`)
         let anos = await page.$$eval(`#slct_ano1${j} option`, options => options
-          .filter(o => o.value != '' && !`${o.value}`.startsWith('?'))
+          .filter(o => o.value != '' && !`${o.value}`.startsWith('?') && !`${o.value}`.startsWith('?'))
           .map(o => o.innerText )
           .sort((a, b) => a < b ? -1 : 1 )
         )
@@ -255,9 +255,6 @@ async function printPDF() {
     // Save the PDF
     await page_print.pdf({ format: 'A4', landscape: false, path: file });
     console.log('Printted ', file)
-
-    if (i == 5)
-      break
 
     // Click at the load button
     // await page.evaluate(`$('button[ng-click="abrir_centro()"]').click()`)
